@@ -80,19 +80,23 @@ def main():
                     print('PROFIT: $',result)
                     
             elif choice == '4':
-                shift = input("Which shift do you want to calculate tips for? (Morning/Evening)").lower()
-                shift.split()
-                if shift[0] == 'm':
-                    morning_shift_sales = list(map(float, input("Enter morning shift sales as a list (comma-separated): ").split(',')))
-                    result = calculate_tips(morning_shift_sales)
-                    print(f"The tip for the morning shift is: ${result}")
-                elif shift[0] == 'e':
-                    evening_shift_sales = list(map(float, input("Enter evening shift sales as a list (comma-separated): ").split(',')))
-                    result = calculate_tips(evening_shift_sales)
-                    print(f"The tip for the evening shift is: ${result}")
-                else:
-                    print("Please specify the shift! (Morning/Evening)")
-                    continue
+                while True:
+                    
+                    shift = input("Which shift do you want to calculate tips for? (Morning/Evening)").lower()
+                    shift.split()
+                    if shift[0] == 'm':
+                        morning_shift_sales = list(map(float, input("Enter morning shift sales as a list (comma-separated): ").split(',')))
+                        result = calculate_tips(morning_shift_sales)
+                        print(f"The tip for the morning shift is: ${result}")
+                        break
+                    elif shift[0] == 'e':
+                        evening_shift_sales = list(map(float, input("Enter evening shift sales as a list (comma-separated): ").split(',')))
+                        result = calculate_tips(evening_shift_sales)
+                        print(f"The tip for the evening shift is: ${result}")
+                        break
+                    else:
+                        print("Please specify the shift! (Morning/Evening)")
+                        continue
                 
             elif choice == '5':
                 morning_shift_sales = list(map(float, input("Enter morning shift sales as a list (comma-separated): ").split(',')))
